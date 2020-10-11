@@ -3,3 +3,37 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    color: #00833b;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 35px;
+    text-align: center;
+}
+
+.button {
+    text-align: center;
+}
+
+.start-quiz {
+    background-color: #00833b;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+}
