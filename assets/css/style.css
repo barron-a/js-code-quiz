@@ -20,36 +20,79 @@ main {
     width: 100%;
     margin: auto;
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    padding: 35px;
+    padding: 20px;
     text-align: center;
 }
 
-.button {
+h1 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+p {
+    display: flex;
+    justify-content: center;
     text-align: center;
+}
+
+.start-button {
+    display: flex;
+    justify-content: center;
 }
 
 .start-quiz {
+    display: flex;
+    align-items: center;
     background-color: #00833b;
     color: white;
-    padding: 10px 10px;
+    font-size: 24px;
+    padding: 15px;
     border: none;
     border-radius: 5px;
 }
 
-.option-btn {
-    background-color: #00833b;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
+#button-container-one {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
 }
 
-.button .choice {
-    background-color: #00833b;
+#button-container-two {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+}
+
+#button-container-three {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+}
+
+#button-container-four {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+}
+
+.answerButton {
+    display: flex;
+    justify-content: center;
+    background-color: blueviolet;
     color: white;
-    text-align: center;
+    font-size: 18px;
+    padding: 5px;
     border-radius: 5px;
 }

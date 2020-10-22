@@ -6,12 +6,12 @@ var quizQuestions = [
     { 
         question: "Which of the following is used in the script tag to link a JavaScript file to an HTML file?", 
         answers: ["img", "rel", "src", "type"],
-        rightAnswer: "1" 
+        rightAnswer: "2" 
     },
     { 
         question: "__________ are containers that store values", 
         answers: ["objects", "variables", "functions", "for loops"],
-        rightAnswer: "2" 
+        rightAnswer: "1" 
     }
 ];
 
@@ -38,30 +38,42 @@ function removeintro() {
 
 function displayQuestion() {
     var currentQuestion = document.createElement("h2");
-    var optionOne = document.createElement("button").setAttribute("class", "answerButton").setAttribute("id", "0");
-    var optionTwo = document.createElement("button").setAttribute("class", "answerButton").setAttribute("id", "1");
-    var optionThree = document.createElement("button").setAttribute("class", "answerButton").setAttribute("id", "2");
-    var optionFour = document.createElement("button").setAttribute("class", "answerButton").setAttribute("id", "3");
+    var optionOne = document.createElement("button");
+    optionOne.setAttribute("class", "answerButton");
+    optionOne.setAttribute("id", "one");
+
+    var optionTwo = document.createElement("button");
+    optionTwo.setAttribute("class", "answerButton");
+    optionTwo.setAttribute("id", "two");
+
+    var optionThree = document.createElement("button");
+    optionThree.setAttribute("class", "answerButton");
+    optionThree.setAttribute("id", "three");
+
+    var optionFour = document.createElement("button");
+    optionFour.setAttribute("class", "answerButton");
+    optionFour.setAttribute("id", "four");
+
     var question = quizQuestions[index].question;
     var answers = quizQuestions[index].answers;
     var rightAnswer = quizQuestions[index].rightAnswer;
 
     //display current question from array on page
     currentQuestion.innerHTML = question;
-    document.getElementById("main").appendChild(currentQuestion);
+    document.getElementById("question-container").appendChild(currentQuestion);
 
     //display current possible answers from array on page
-    optionOne.innerHTML = answers[0];
-    document.getElementById("main").appendChild(optionOne);
+    optionOne.innerHTML = quizQuestions[index].answers[0];
+    document.getElementById("button-container-one").appendChild(optionOne);
 
-    optionTwo.innerHTML = answers[1];
-    document.getElementById("main").appendChild(optionTwo);
+    optionTwo.innerHTML = quizQuestions[index].answers[1];
+    document.getElementById("button-container-two").appendChild(optionTwo);
 
-    optionThree.innerHTML = answers[2];
-    document.getElementById("main").appendChild(optionThree);
+    optionThree.innerHTML = quizQuestions[index].answers[2];
+    document.getElementById("button-container-three").appendChild(optionThree);
 
-    optionFour.innerHTML = answers[3];
-    document.getElementById("main").appendChild(optionFour);
+    optionFour.innerHTML = quizQuestions[index].answers[3];
+    document.getElementById("button-container-four").appendChild(optionFour);
 }
 
 function checkAnswer(answer) {
@@ -108,5 +120,5 @@ function checkAnswer(answer) {
 // };
 
 startButton.addEventListener("click", quizTimer);
-startButton.addEventListener("click", quiz);
+startButton.addEventListener("click", displayQuestion);
 startButton.addEventListener("click", removeintro);
