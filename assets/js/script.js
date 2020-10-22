@@ -1,17 +1,17 @@
 // establish variables
-var startButton = document.getElementById('start-quiz');
+var startButton = document.getElementById("start-quiz");
 var index = 0;
 var timeLeft = 90;
 var quizQuestions = [
     { 
         question: "Which of the following is used in the script tag to link a JavaScript file to an HTML file?", 
         answers: ["img", "rel", "src", "type"],
-        rightAnswer: "2" 
+        rightAnswer: "two" 
     },
     { 
         question: "__________ are containers that store values", 
         answers: ["objects", "variables", "functions", "for loops"],
-        rightAnswer: "1" 
+        rightAnswer: "one" 
     }
 ];
 
@@ -37,30 +37,37 @@ function removeintro() {
 };
 
 function displayQuestion() {
-    var currentQuestion = document.createElement("h2");
+
+    // var currentQuestion = document.createElement("h2");
+    // currentQuestion.setAttribute("id", "question");
+
+    var currentQuestion = quizQuestions[index];
+    var questionDisplay = document.getElementById("question-display");
+    questionDisplay.textContent = currentQuestion.question;
+
     var optionOne = document.createElement("button");
     optionOne.setAttribute("class", "answerButton");
-    optionOne.setAttribute("id", "one");
+    optionOne.setAttribute("id", "zero");
+    optionOne.addEventListener("click", checkAnswer);
 
     var optionTwo = document.createElement("button");
     optionTwo.setAttribute("class", "answerButton");
-    optionTwo.setAttribute("id", "two");
+    optionTwo.setAttribute("id", "one");
+    optionTwo.addEventListener("click", checkAnswer);
 
     var optionThree = document.createElement("button");
     optionThree.setAttribute("class", "answerButton");
-    optionThree.setAttribute("id", "three");
+    optionThree.setAttribute("id", "two");
+    optionThree.addEventListener("click", checkAnswer);
 
     var optionFour = document.createElement("button");
     optionFour.setAttribute("class", "answerButton");
-    optionFour.setAttribute("id", "four");
-
-    var question = quizQuestions[index].question;
-    var answers = quizQuestions[index].answers;
-    var rightAnswer = quizQuestions[index].rightAnswer;
+    optionFour.setAttribute("id", "three");
+    optionFour.addEventListener("click", checkAnswer);
 
     //display current question from array on page
-    currentQuestion.innerHTML = question;
-    document.getElementById("question-container").appendChild(currentQuestion);
+    // currentQuestion.innerHTML = question;
+    // document.getElementById("question-container").appendChild(currentQuestion);
 
     //display current possible answers from array on page
     optionOne.innerHTML = quizQuestions[index].answers[0];
@@ -76,18 +83,33 @@ function displayQuestion() {
     document.getElementById("button-container-four").appendChild(optionFour);
 }
 
-function checkAnswer(answer) {
+function checkAnswer(answer) {   
     var verification = document.getElementById("verification");
+    var answer = this.id
+    console.log(answer);
     if (answer === quizQuestions[index].rightAnswer) {
-        verification.textContent("Correct!");
+        verification.textContent = "Correct!";
     }
     else {
-        verification.textContent("Incorrect!");
+        verification.textContent = "Incorrect!";
         timeLeft -= 10;
     };
     index++;
-    displayQuestion();
+
+    if (index === quizQuestions.length) {
+        endQuiz();
+    } else {
+        displayQuestion();
+    }
+};
+
+function endQuiz() {
+
 }
+
+startButton.addEventListener("click", quizTimer);
+startButton.addEventListener("click", displayQuestion);
+startButton.addEventListener("click", removeintro);
 
 // function quiz() {
 //     for (var i = 0; i < quizQuestions.length; i++) {
@@ -118,7 +140,3 @@ function checkAnswer(answer) {
 //         document.getElementById("main").appendChild(optionFour);
 //     }
 // };
-
-startButton.addEventListener("click", quizTimer);
-startButton.addEventListener("click", displayQuestion);
-startButton.addEventListener("click", removeintro);
