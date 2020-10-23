@@ -83,6 +83,10 @@ function displayQuestion() {
     document.getElementById("button-container-four").appendChild(optionFour);
 }
 
+function endQuiz() {
+
+}
+
 function checkAnswer(answer) {   
     var verification = document.getElementById("verification");
     var answer = this.id
@@ -101,11 +105,7 @@ function checkAnswer(answer) {
     } else {
         displayQuestion();
     }
-};
-
-function endQuiz() {
-
-}
+}; 
 
 startButton.addEventListener("click", quizTimer);
 startButton.addEventListener("click", displayQuestion);
