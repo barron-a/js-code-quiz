@@ -4,21 +4,22 @@ var index = 0;
 var timeLeft = 90;
 var intro = document.querySelector(".intro");
 var questionContainer = document.getElementById("question-container");
+var answerContainer = document.getElementById("answers");
 var quizQuestions = [
-    { 
-        question: "Which of the following is used in the script tag to link a JavaScript file to an HTML file?", 
+    {
+        question: "Which of the following is used in the script tag to link a JavaScript file to an HTML file?",
         answers: ["img", "rel", "src", "type"],
-        rightAnswer: "two" 
+        rightAnswer: "two"
     },
-    { 
-        question: "__________ are containers that store values", 
+    {
+        question: "__________ are containers that store values",
         answers: ["objects", "variables", "functions", "for loops"],
-        rightAnswer: "one" 
+        rightAnswer: "one"
     }
 ];
 
 function quizTimer() {
-    var interval = setInterval(function() {
+    var interval = setInterval(function () {
         timeLeft--;
         document.getElementById("timer").textContent = "Time: " + timeLeft;
         if (timeLeft <= 0) {
@@ -26,7 +27,7 @@ function quizTimer() {
             return;
         }
     },
-    1000);
+        1000);
 };
 
 function removeintro() {
@@ -50,49 +51,67 @@ function displayQuestion() {
     var questionDisplay = document.getElementById("question-display");
     questionDisplay.textContent = currentQuestion.question;
 
-    var optionOne = document.createElement("button");
-    optionOne.setAttribute("class", "answerButton");
-    optionOne.setAttribute("id", "zero");
+    var optionOne = document.getElementById("zero");
+    optionOne.textContent = currentQuestion.answers[0];
     optionOne.addEventListener("click", checkAnswer);
 
-    var optionTwo = document.createElement("button");
-    optionTwo.setAttribute("class", "answerButton");
-    optionTwo.setAttribute("id", "one");
+    var optionTwo = document.getElementById("one");
+    optionTwo.textContent = currentQuestion.answers[1];
     optionTwo.addEventListener("click", checkAnswer);
 
-    var optionThree = document.createElement("button");
-    optionThree.setAttribute("class", "answerButton");
-    optionThree.setAttribute("id", "two");
+    var optionThree = document.getElementById("two");
+    optionThree.textContent = currentQuestion.answers[2];
     optionThree.addEventListener("click", checkAnswer);
 
-    var optionFour = document.createElement("button");
-    optionFour.setAttribute("class", "answerButton");
-    optionFour.setAttribute("id", "three");
+    var optionFour = document.getElementById("three");
+    optionFour.textContent = currentQuestion.answers[3];
     optionFour.addEventListener("click", checkAnswer);
+
+    // var optionOne = document.createElement("button");
+    // optionOne.setAttribute("class", "answerButton");
+    // optionOne.setAttribute("id", "zero");
+    // optionOne.addEventListener("click", checkAnswer);
+
+    // var optionTwo = document.createElement("button");
+    // optionTwo.setAttribute("class", "answerButton");
+    // optionTwo.setAttribute("id", "one");
+    // optionTwo.addEventListener("click", checkAnswer);
+
+    // var optionThree = document.createElement("button");
+    // optionThree.setAttribute("class", "answerButton");
+    // optionThree.setAttribute("id", "two");
+    // optionThree.addEventListener("click", checkAnswer);
+
+    // var optionFour = document.createElement("button");
+    // optionFour.setAttribute("class", "answerButton");
+    // optionFour.setAttribute("id", "three");
+    // optionFour.addEventListener("click", checkAnswer);
 
     //display current question from array on page
     // currentQuestion.innerHTML = question;
     // document.getElementById("question-container").appendChild(currentQuestion);
 
-    //display current possible answers from array on page
-    optionOne.innerHTML = quizQuestions[index].answers[0];
-    document.getElementById("button-container-one").appendChild(optionOne);
+    // answerContainer.innerHTML = "";
 
-    optionTwo.innerHTML = quizQuestions[index].answers[1];
-    document.getElementById("button-container-two").appendChild(optionTwo);
+    //display current possible answers from array
+    // optionOne.innerHTML = quizQuestions[index].answers[0];
+    // document.getElementById("button-container-one").appendChild(optionOne);
 
-    optionThree.innerHTML = quizQuestions[index].answers[2];
-    document.getElementById("button-container-three").appendChild(optionThree);
+    // optionTwo.innerHTML = quizQuestions[index].answers[1];
+    // document.getElementById("button-container-two").appendChild(optionTwo);
 
-    optionFour.innerHTML = quizQuestions[index].answers[3];
-    document.getElementById("button-container-four").appendChild(optionFour);
+    // optionThree.innerHTML = quizQuestions[index].answers[2];
+    // document.getElementById("button-container-three").appendChild(optionThree);
+
+    // optionFour.innerHTML = quizQuestions[index].answers[3];
+    // document.getElementById("button-container-four").appendChild(optionFour);
 }
 
 function endQuiz() {
 
 }
 
-function checkAnswer(answer) {   
+function checkAnswer(answer) {
     var verification = document.getElementById("verification");
     var answer = this.id
     console.log(answer);
@@ -110,7 +129,7 @@ function checkAnswer(answer) {
     } else {
         displayQuestion();
     }
-}; 
+};
 
 startButton.addEventListener("click", quizTimer);
 startButton.addEventListener("click", displayQuestion);
