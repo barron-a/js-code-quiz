@@ -36,6 +36,7 @@ h2 {
     display: flex;
     justify-content: center;
     padding: 20px;
+    width: 100%;
 }
 
 p {
@@ -60,6 +61,10 @@ p {
     padding: 15px;
     border: 2px solid rgb(132, 214, 1);
     border-radius: 5px;
+}
+
+.hidden {
+    display: none;
 }
 
 #button-container-one {

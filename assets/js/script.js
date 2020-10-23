@@ -2,6 +2,8 @@
 var startButton = document.getElementById("start-quiz");
 var index = 0;
 var timeLeft = 90;
+var intro = document.querySelector(".intro");
+var questionContainer = document.getElementById("question-container");
 var quizQuestions = [
     { 
         question: "Which of the following is used in the script tag to link a JavaScript file to an HTML file?", 
@@ -28,18 +30,21 @@ function quizTimer() {
 };
 
 function removeintro() {
-    var removeTitle = document.getElementById("title");
-    var removeIntroText = document.getElementById("intro-text");
-    var removeStartBtn = document.getElementById("start-quiz");
-    removeTitle.remove();
-    removeIntroText.remove();
-    removeStartBtn.remove();
+    intro.setAttribute("class", "hidden");
+    // var removeTitle = document.getElementById("title");
+    // var removeIntroText = document.getElementById("intro-text");
+    // var removeStartBtn = document.getElementById("start-quiz");
+    // removeTitle.remove();
+    // removeIntroText.remove();
+    // removeStartBtn.remove();
 };
 
 function displayQuestion() {
 
     // var currentQuestion = document.createElement("h2");
     // currentQuestion.setAttribute("id", "question");
+
+    questionContainer.removeAttribute("class");
 
     var currentQuestion = quizQuestions[index];
     var questionDisplay = document.getElementById("question-display");
