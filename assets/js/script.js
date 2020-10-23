@@ -1,7 +1,9 @@
 // establish variables
 var startButton = document.getElementById("start-quiz");
 var index = 0;
-var timeLeft = 90;
+var timeLeft = 30;
+var countdown;
+var timer = document.getElementById("timer");
 var intro = document.querySelector(".intro");
 var questionContainer = document.getElementById("question-container");
 var answerContainer = document.getElementById("answers");
@@ -19,19 +21,17 @@ var quizQuestions = [
 ];
 
 function quizTimer() {
-    var interval = setInterval(function () {
-        timeLeft--;
-        document.getElementById("timer").textContent = "Time: " + timeLeft;
-        if (timeLeft <= 0) {
-            clearInterval(interval);
-            return;
-        }
-    },
-        1000);
+    timeLeft--;
+    timer.textContent = "Time: " + timeLeft;
+    if (timeLeft <= 0) {
+        endQuiz();
+    }
 };
 
-function removeintro() {
+function startQuiz() {
     intro.setAttribute("class", "hidden");
+    countdown = setInterval(quizTimer, 1000);
+    timer.textContent = "Time: " + timeLeft;
     // var removeTitle = document.getElementById("title");
     // var removeIntroText = document.getElementById("intro-text");
     // var removeStartBtn = document.getElementById("start-quiz");
@@ -108,7 +108,7 @@ function displayQuestion() {
 }
 
 function endQuiz() {
-
+    clearInterval(countdown);
 }
 
 function checkAnswer(answer) {
@@ -133,7 +133,7 @@ function checkAnswer(answer) {
 
 startButton.addEventListener("click", quizTimer);
 startButton.addEventListener("click", displayQuestion);
-startButton.addEventListener("click", removeintro);
+startButton.addEventListener("click", startQuiz);
 
 // function quiz() {
 //     for (var i = 0; i < quizQuestions.length; i++) {
