@@ -155,7 +155,15 @@ function saveScore() {
     console.log(timeLeft);
 
     if (initials !== "") {
+        scoreObj = {
+            score: roundScore,
+            initials: initials
+        };
 
+        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+        highScores.push(scoreObj);
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        console.log(highScores);
     }
 
 }
