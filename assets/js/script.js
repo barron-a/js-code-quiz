@@ -7,6 +7,7 @@ var timer = document.getElementById("timer");
 var intro = document.querySelector(".intro");
 var questionContainer = document.getElementById("question-container");
 var answerContainer = document.getElementById("answers");
+var submitScore = document.getElementById("submit-score");
 var quizQuestions = [
     {
         question: "Which of the following is used in the script tag to link a JavaScript file to an HTML file?",
@@ -145,9 +146,24 @@ function checkAnswer(answer) {
     }
 };
 
+function saveScore() {
+    var initials = document.getElementById("initials");
+    initials = initials.value.trim();
+    console.log(initials);
+
+    var roundScore = timeLeft;
+    console.log(timeLeft);
+
+    if (initials !== "") {
+
+    }
+
+}
+
 startButton.addEventListener("click", quizTimer);
 startButton.addEventListener("click", displayQuestion);
 startButton.addEventListener("click", startQuiz);
+submitScore.addEventListener("click", saveScore);
 
 // function quiz() {
 //     for (var i = 0; i < quizQuestions.length; i++) {
