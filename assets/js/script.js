@@ -108,7 +108,21 @@ function displayQuestion() {
 }
 
 function endQuiz() {
+    // stop timer
     clearInterval(countdown);
+
+    // hide question container
+    questionContainer.setAttribute("class", "hidden");
+
+    // un-hide end game container
+    var endGame = document.getElementById("end-game")
+    endGame.removeAttribute("class", "hidden");
+
+    // create variable to hold score
+    var roundScore = document.getElementById("score");
+    
+    // make roundScore equal to timeLeft
+    roundScore.textContent = timeLeft;
 }
 
 function checkAnswer(answer) {
