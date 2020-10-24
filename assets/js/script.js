@@ -1,7 +1,7 @@
 // establish variables
 var startButton = document.getElementById("start-quiz");
 var index = 0;
-var timeLeft = 30;
+var timeLeft = 60;
 var countdown;
 var timer = document.getElementById("timer");
 var intro = document.querySelector(".intro");
