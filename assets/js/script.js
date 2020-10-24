@@ -166,6 +166,8 @@ function saveScore() {
         console.log(highScores);
     }
 
+    window.location.href = "allhighscores.html";
+
 }
 
 startButton.addEventListener("click", quizTimer);
