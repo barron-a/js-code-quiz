@@ -20,7 +20,27 @@ var quizQuestions = [
         question: "__________ are containers that store values",
         answers: ["objects", "variables", "functions", "for loops"],
         rightAnswer: "one"
-    }
+    },
+    {
+        question: "Which of the following pairs of symbols is used to hold a string?",
+        answers: ["\"\"", "\{\}", "\[\]", "!!"],
+        rightAnswer: "zero"
+    },
+    {
+        question: "What does DOM stand for?",
+        answers: ["Document Object Model", "Document Object Method", "Direct Output Mode", "Development Ordering Model"],
+        rightAnswer: "zero"
+    },
+    {
+        question: "__________ will allow you to target a variety of selectors",
+        answers: ["document.createElement()", "document.getElementById", "document.addEventListener", "document.querySelector"],
+        rightAnswer: "three"
+    },
+    {
+        question: "__________ are the names listed in the function definition",
+        answers: ["arguments", "values", "parameters", "variables"],
+        rightAnswer: "two"
+    },
 ];
 
 // function to countdown and display time, and end quiz if timer reaches 0
