@@ -4,6 +4,8 @@ var clearLocalStorage = document.getElementById("clear-scores");
 // function to add initials and high score to ordered list and then populate those items on page
 function showScores() {
     var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+    highScores.sort(function(a, b) {return b.score -a.score});
     
     for (i = 0; i < highScores.length; i++) {
         var scoreListItem = document.createElement("li");
