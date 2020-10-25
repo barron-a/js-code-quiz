@@ -141,11 +141,23 @@ button {
     padding: 10px;
 }
 
+li {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    background-color: blueviolet;
+    opacity: 50%;
+    color: white;
+    font-size: 18px;
+    margin: 5px auto;
+    padding: 5px;
+}
+
 #go-back {
     display: flex;
     justify-content: center;
     width: fit-content;
-    margin: auto;
+    margin: 20px auto;
     padding: 10px;
 }
 
