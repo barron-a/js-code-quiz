@@ -8,6 +8,8 @@ var intro = document.querySelector(".intro");
 var questionContainer = document.getElementById("question-container");
 var answerContainer = document.getElementById("answers");
 var submitScore = document.getElementById("submit-score");
+
+// establish quizQuestions array for index to loop through
 var quizQuestions = [
     {
         question: "Which of the following is used in the script tag to link a JavaScript file to an HTML file?",
@@ -21,6 +23,7 @@ var quizQuestions = [
     }
 ];
 
+// function to countdown and display time, and end quiz if timer reaches 0
 function quizTimer() {
     timeLeft--;
     timer.textContent = "Time: " + timeLeft;
@@ -29,12 +32,14 @@ function quizTimer() {
     }
 };
 
+// function to start quiz which hides welcome page and starts timer
 function startQuiz() {
     intro.setAttribute("class", "hidden");
     countdown = setInterval(quizTimer, 1000);
     timer.textContent = "Time: " + timeLeft;
 };
 
+// function to unhide questions section and display looped questions and answers from array
 function displayQuestion() {
 
     questionContainer.removeAttribute("class");
@@ -60,28 +65,25 @@ function displayQuestion() {
     optionFour.addEventListener("click", checkAnswer);
 }
 
+// function to run when quiz ends, either when timer runs out or quiz is finished
 function endQuiz() {
     // stop timer
     clearInterval(countdown);
 
-    // hide question container
     questionContainer.setAttribute("class", "hidden");
-
-    // un-hide end game container
     var endGame = document.getElementById("end-game")
     endGame.removeAttribute("class", "hidden");
 
-    // create variable to hold score
     var roundScore = document.getElementById("score");
-    
-    // make roundScore equal to timeLeft
     roundScore.textContent = timeLeft;
 }
 
+// function to check if the selected answer was the right answer
 function checkAnswer(answer) {
     var verification = document.getElementById("verification");
     var answer = this.id
     console.log(answer);
+    // if statement to verifty if answer is correct
     if (answer === quizQuestions[index].rightAnswer) {
         verification.textContent = "Correct!";
     }
@@ -89,8 +91,10 @@ function checkAnswer(answer) {
         verification.textContent = "Incorrect!";
         timeLeft -= 10;
     };
+    // move to next question/answer options
     index++;
 
+    // end quiz if user runs out of questions (or continue to next)
     if (index === quizQuestions.length) {
         endQuiz();
     } else {
@@ -98,6 +102,7 @@ function checkAnswer(answer) {
     }
 };
 
+// function to save quiz score to local storage
 function saveScore() {
     var initials = document.getElementById("initials");
     initials = initials.value.trim();
@@ -106,6 +111,7 @@ function saveScore() {
     var roundScore = timeLeft;
     console.log(timeLeft);
 
+    // if initials are entered, turn the initials and score into an object that can go to local storage
     if (initials !== "") {
         scoreObj = {
             score: roundScore,
@@ -118,9 +124,11 @@ function saveScore() {
         console.log(highScores);
     }
 
+    // take user to secondary page
     window.location.href = "allhighscores.html";
 }
 
+// click listeners for start button and submit score buttons
 startButton.addEventListener("click", quizTimer);
 startButton.addEventListener("click", displayQuestion);
 startButton.addEventListener("click", startQuiz);

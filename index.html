@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <!-- header with link to high scores page and placeholder for timer -->
     <header>
         <p id="high-scores"> <a href="./allhighscores.html">View High Scores</a></p>
         <p id="timer"></p>
     </header>
 
+    <!-- container to hold weclome screen, question/answer info, and end screen -->
     <main id="main">
+
+        <!-- weclome screen -->
         <div class="intro">
             <h1 id="title">JavaScript Fundamentals Quiz</h1>
 
@@ -28,8 +32,8 @@
                 <button type="button" class="start-quiz" id="start-quiz">Start Quiz</button>
             </div>
         </div>
-        
 
+        <!-- questions and answers -->
         <div class="hidden" id="question-container">
             <h2 id="question-display"></h2>
             <div id="answers">
@@ -41,6 +45,7 @@
             <div id="verification"></div>
         </div>
 
+        <!-- end screen -->
         <div class="hidden" id="end-game">
             <h2>All Done!</h2>
             <p>Your Final Score Is: <span id="score"></span></p>
